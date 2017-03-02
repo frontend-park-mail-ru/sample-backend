@@ -12,10 +12,11 @@ const app = express();
 app.use(morgan('combined'));
 app.use(cors({
 	origin: 'https://sample-frontend.herokuapp.com/',
-	credentials: true
+	credentials: true,
+	allowedHeaders: ['X-EXPRESS-SESSIONID', 'Content-Type', 'Authorization']
 }));
 
-app.use(session());
+app.use(session({secret: 'X-EXPRESS-SESSIONID'}));
 app.use(body.json());
 app.use(cookie());
 
