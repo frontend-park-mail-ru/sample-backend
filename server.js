@@ -15,13 +15,16 @@ app.use(cors({
 	credentials: true,
 	allowedHeaders: ['X-EXPRESS-SESSIONID', 'Content-Type', 'Authorization']
 }));
-
-app.use(session({secret: 'X-EXPRESS-SESSIONID'}));
+app.use(session({
+	secret: 'X-EXPRESS-SESSIONID',
+	resave: true,
+	saveUninitialized: true
+}));
 app.use(body.json());
 app.use(cookie());
 
 app.use(function (req, res) {
-	res.send('Hello, world!');
+	res.send('<h1>Hello, world!</h1>');
 });
 
 app.listen(process.env.PORT || 3001, function () {
