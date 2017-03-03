@@ -12,13 +12,16 @@ class MessagesStorage {
 	}
 
 	addMessage(message) {
-		if (typeof message.text !== "string" || typeof message.email !== "string") {
-			throw new Error('You must specify message text or/and sender email');
+		if (typeof message.text !== "string"
+			|| typeof message.email !== "string"
+			|| typeof message.login !== "string") {
+			throw new Error('You must specify message text or/and sender email and login');
 		}
 
 		this.storage.unshift({
 			text: message.text,
 			email: message.email,
+			login: message.login,
 			timestamp: Date.now()
 		});
 
