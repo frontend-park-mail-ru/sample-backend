@@ -1,2 +1,2 @@
 # sample-backend
-Backend app for sample
+Backend app for sample project
