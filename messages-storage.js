@@ -30,8 +30,12 @@ class MessagesStorage {
 		}
 	}
 
-	getMessages(limit = 0, offset = 0) {
-		return this.storage.slice(offset, offset + limit);
+	getMessages(limit = null, offset = 0) {
+		if (limit !== null) {
+			return this.storage.slice(offset, offset + limit);
+		} else {
+			return this.storage.slice(offset);
+		}
 	}
 }
 
