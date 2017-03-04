@@ -34,7 +34,7 @@ app.use(cookie());
 
 app.get('/api/messages', function (req, res) {
 	let storage = null;
-	if (req.get(testingCredentials.headerName) === testingCredentials.headerSecret) {
+	if (req.get(testingCredentials.headerName) !== testingCredentials.headerSecret) {
 		storage = productionMessagesStorage;
 	} else {
 		storage = testingMessagesStorage;
@@ -51,7 +51,7 @@ app.get('/api/messages', function (req, res) {
 
 app.post('/api/messages', function (req, res) {
 	let storage = null;
-	if (req.get(testingCredentials.headerName) === testingCredentials.headerSecret) {
+	if (req.get(testingCredentials.headerName) !== testingCredentials.headerSecret) {
 		storage = productionMessagesStorage;
 	} else {
 		storage = testingMessagesStorage;
