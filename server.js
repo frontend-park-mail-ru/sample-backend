@@ -20,7 +20,7 @@ const testingCredentials = {
 
 app.use(morgan('combined'));
 app.use(cors({
-	origin: ['https://sample-frontend.herokuapp.com/', 'http://localhost:3000'],
+	origin: ['https://sample-frontend.herokuapp.com', 'http://localhost:3000'],
 	credentials: true,
 	allowedHeaders: ['X-EXPRESS-SESSIONID', 'X-SERCET-TESTING', 'Content-Type', 'Authorization']
 }));
